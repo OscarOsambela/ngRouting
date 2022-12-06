@@ -25,7 +25,9 @@ const routes: Routes = [
         path: 'subpage',
         component: HomePageComponent
       }
-    ]
+    ],
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard]
   },
   {
     path: 'contacts',
