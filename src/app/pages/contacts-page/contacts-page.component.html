@@ -1,22 +1,26 @@
 <h1>Tus contactos:</h1>
 <ng-container
   *ngIf="
-    filtroSexo == 'femenino' || filtroSexo == 'masculino';
+    filtroSexo == 'female' || filtroSexo == 'male';
     else elseTemplate
   "
 >
   <p>Mostrando lista: "{{ filtroSexo }}"</p>
 </ng-container>
 <!-- Listar los contactos y poder navegar click en contacto -->
-<div *ngFor="let item of listaContactos; let i = index">
-  <div routerLink="{{ item.id }}" [state]="{ data: item, filtro: filtroSexo }">
-    <h3>{{ item.nombre }}</h3>
-    <button (click)="goToHome(item)">Enviar contacto</button>
+<div class="grid-container">
+  <div *ngFor="let item of listaRandomContacts; let i = index" class="box-contact">
+    <div routerLink="{{ item.id.name }}" [state]="{ data: item, filtro: filtroSexo }" class="grid-item">
+      <h3>{{ item.name.first }} {{ item.name.last }}</h3>
+      <h4>{{item.gender}}</h4>
+      <button (click)="goToHome(item)" mat-raised-button>Enviar contacto</button>
+    </div>
   </div>
 </div>
+
 
 <ng-template #elseTemplate>
   <p>Mostrando lista completa</p>
 </ng-template>
-<br><br>
-<a routerLink="/home">Volver</a>
+
+<button routerLink="/home" mat-button color="primary">Volver</button>

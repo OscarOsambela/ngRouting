@@ -1,6 +1,5 @@
-<h1>Página de login</h1>
-
 <!-- Formulario de login -->
-<input [(ngModel)]="email" type="email" placeholder="Escribe el email"><br/><br/>
+<!-- <input [(ngModel)]="email" type="email" placeholder="Escribe el email"><br/><br/>
 <input [(ngModel)]="password" type="text" placeholder="Escribe la contraseña"><br/><br/>
-<button (click)="loginUser()">Acceder</button>
+<button (click)="loginUser()">Acceder</button> -->
+<app-login-form (loginAction)="loginUser($event)"></app-login-form>

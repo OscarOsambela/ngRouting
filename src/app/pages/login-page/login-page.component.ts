@@ -8,8 +8,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent implements OnInit {
-  email: string = '';
-  password: string = '';
+
+  // email: string = '';
+  // password: string = '';
 
   constructor(private router: Router, private authService: AuthService) {}
 
@@ -20,11 +21,12 @@ export class LoginPageComponent implements OnInit {
     }
   }
 
-  loginUser() {
-    this.authService.login(this.email, this.password).subscribe(
+  loginUser(value: any) {
+    let {email, password} = value;
+    this.authService.login(email, password).subscribe(
       (response) => {
         if (response.token) {
-          sessionStorage.setItem('token', '12345678');
+          sessionStorage.setItem('token', response.token);
           this.router.navigate(['home']);
         }
       },
