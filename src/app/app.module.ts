@@ -15,6 +15,23 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { NombreCompletoPipe } from './pipes/nombre-completo.pipe';
 import { RandomUserComponent } from './components/random-user/random-user.component';
 import { RandomContactPageComponent } from './pages/random-contact-page/random-contact-page.component';
+import { NavComponent } from './components/nav/nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { TasksPageComponent } from './pages/tasks-page/tasks-page.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { InputTaskComponent } from './components/input-task/input-task.component';
+import { OnPushComponent } from './pages/on-push/on-push.component';
+import { DataListProvider, DetachComponent } from './pages/detach/detach.component';
+import { ReattachComponent } from './pages/reattach/reattach.component';
+import { NgZoneComponent } from './pages/ng-zone/ng-zone.component';
+import { AsyncPipeComponent } from './pages/async-pipe/async-pipe.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +44,17 @@ import { RandomContactPageComponent } from './pages/random-contact-page/random-c
     NombreCompletoPipe,
     RandomUserComponent,
     RandomContactPageComponent,
+    NavComponent,
+    DashboardComponent,
+    TasksPageComponent,
+    TasksComponent,
+    InputTaskComponent,
+    OnPushComponent,
+    DetachComponent,
+    ReattachComponent,
+    NgZoneComponent,
+    AsyncPipeComponent,
+
   ],
   imports: [
     AppRountingModule,
@@ -36,8 +64,15 @@ import { RandomContactPageComponent } from './pages/random-contact-page/random-c
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    DragDropModule,
   ],
-  providers: [],
+  providers: [DataListProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

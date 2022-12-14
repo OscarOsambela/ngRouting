@@ -1,0 +1,15 @@
+.urgent-task{
+    color: orange
+  }
+  .blocking-task{
+    color: tomato
+  }
+  .info-task{
+    color: blue
+  }
+  .message-success{
+    color: green;
+  }
+  .message-pending{
+    color: tomato;
+  }

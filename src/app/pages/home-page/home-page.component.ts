@@ -12,7 +12,11 @@ import { IRandomContact } from 'src/app/models/randomUser';
 export class HomePageComponent implements OnInit {
   token: string | null = null;
   contactoSeleccionado: IRandomContact | undefined;
-
+  checked = false;
+  indeterminate = false;
+  labelPosition: 'before' | 'after' = 'after';
+  disabled = false;
+  
   constructor(private router: Router) {}
 
   ngOnInit(): void {
@@ -21,8 +25,6 @@ export class HomePageComponent implements OnInit {
     //leemos el historial de navegación
     if(history.state.data){
       this.contactoSeleccionado = history.state.data
-      console.log(this.contactoSeleccionado);
-
     }
   }
 
@@ -32,6 +34,6 @@ export class HomePageComponent implements OnInit {
         sexo: 'todos'
       }
     }
-    this.router.navigate(['contacts'], navigationExtras)
+    this.router.navigate(['dashboard/contacts'], navigationExtras)
   }
 }

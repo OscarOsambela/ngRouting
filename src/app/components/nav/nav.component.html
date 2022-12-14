@@ -1,0 +1,72 @@
+<style>
+    .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a
+        mat-list-item
+        [routerLink]="['/']"
+        >Contactos</a
+      >
+      <a mat-list-item [routerLink]="['/dashboard/random']">Contacto random</a>
+      <a mat-list-item [routerLink]="['/dashboard/tasks']">Tareas</a>
+      <a mat-list-item [routerLink]="['/dashboard/onpush']">OnPush</a>
+      <a mat-list-item [routerLink]="['/dashboard/detach']">Detach</a>
+      <a mat-list-item [routerLink]="['/dashboard/reattach']">Reattach</a>
+      <a mat-list-item [routerLink]="['/dashboard/ngzone']">ngZone</a>
+      <a mat-list-item [routerLink]="['/dashboard/asyncpipe']">AsyncPipe</a>
+
+      <a mat-list-item *ngIf="token" (click)="logout()">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Proyecto Angular básico</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <!-- renderiza el componente que indique el routing module a partie de la ruta URL activa -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<style>
+    .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
+

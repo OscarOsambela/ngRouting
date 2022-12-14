@@ -21,6 +21,7 @@ export class ContactsPageComponent implements OnInit {
   filtroSexo: string = 'todos';
   listaContactos: IContacto[] = [];
   listaRandomContacts: IRandomContact[] = [];
+  loading: boolean = true;
 
   ngOnInit(): void {
     //obtenemos los query params
@@ -28,7 +29,7 @@ export class ContactsPageComponent implements OnInit {
       console.log('QueryParams:', params.sexo);
       if (params.sexo) {
         this.filtroSexo = params.sexo;
-        if(params.sexo === 'female' || params.sexo === 'male'){
+        if (params.sexo === 'female' || params.sexo === 'male') {
           this.randomUserService.getRandomContacts(9, params.sexo).subscribe({
             next: (response: Results) => {
               response.results.forEach(
@@ -37,12 +38,14 @@ export class ContactsPageComponent implements OnInit {
                 }
               );
               console.log(this.listaRandomContacts);
-
             },
             error: (error) => console.error(`${error}`),
-            complete: () => console.info('Petición de random contact terminada'),
+            complete: () => {
+              console.info('Petición de random contact terminada'),
+                (this.loading = false);
+            },
           });
-        }else{
+        } else {
           this.randomUserService.getRandomContacts(9).subscribe({
             next: (response: Results) => {
               response.results.forEach(
@@ -51,10 +54,12 @@ export class ContactsPageComponent implements OnInit {
                 }
               );
               console.log(this.listaRandomContacts);
-
             },
             error: (error) => console.error(`${error}`),
-            complete: () => console.info('Petición de random contact terminada'),
+            complete: () => {
+              console.info('Petición de random contact terminada'),
+                (this.loading = false);
+            },
           });
         }
       }
@@ -70,7 +75,6 @@ export class ContactsPageComponent implements OnInit {
     //   )
     //   .finally(() => console.info('petición de contactos terminada'));
     //implementacion para obtener lista de contactos
-
   }
 
   //ejemplo de paso de informacion entre componentes a traves del estado
@@ -80,6 +84,6 @@ export class ContactsPageComponent implements OnInit {
         data: contacto,
       },
     };
-    this.router.navigate(['home'], navigationExtras);
+    this.router.navigate(['dashboard'], navigationExtras);
   }
 }
