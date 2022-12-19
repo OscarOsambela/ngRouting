@@ -15,6 +15,9 @@ import { OnPushComponent } from './pages/on-push/on-push.component';
 import { RandomContactPageComponent } from './pages/random-contact-page/random-contact-page.component';
 import { ReattachComponent } from './pages/reattach/reattach.component';
 import { TasksPageComponent } from './pages/tasks-page/tasks-page.component';
+import { AttrComponent } from './components/directivasAvanzadas/attr/attr.component';
+import { LifeCycleComponent } from './components/directivasAvanzadas/life-cycle/life-cycle.component';
+import { StructComponent } from './components/directivasAvanzadas/struct/struct.component';
 
 const routes: Routes = [
   {
@@ -79,6 +82,21 @@ const routes: Routes = [
       {
         path: 'asyncpipe',
         component: AsyncPipeComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'attr',
+        component: AttrComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'stract',
+        component: StructComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'lifecycle',
+        component: LifeCycleComponent,
         canActivate: [AuthGuard],
       },
     ],

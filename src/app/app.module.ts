@@ -29,9 +29,17 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { InputTaskComponent } from './components/input-task/input-task.component';
 import { OnPushComponent } from './pages/on-push/on-push.component';
 import { DataListProvider, DetachComponent } from './pages/detach/detach.component';
-import { ReattachComponent } from './pages/reattach/reattach.component';
+import { PrecioBitCoinProvider, ReattachComponent } from './pages/reattach/reattach.component';
 import { NgZoneComponent } from './pages/ng-zone/ng-zone.component';
 import { AsyncPipeComponent } from './pages/async-pipe/async-pipe.component';
+import { AttrComponent } from './components/directivasAvanzadas/attr/attr.component';
+import { StructComponent } from './components/directivasAvanzadas/struct/struct.component';
+import { LifeCycleComponent } from './components/directivasAvanzadas/life-cycle/life-cycle.component';
+import { AttrDirective } from './directives/attr.directive';
+import { StructDirective } from './directives/struct.directive';
+import { LifeCycleDirective } from './directives/life-cycle.directive';
+import { LifecycleDirective } from './components/directivasAvanzadas/lifeCycle/lifecycle.directive';
+import { MouseOverDirective } from './components/directivasAvanzadas/mouseOver/mouse-over.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +62,14 @@ import { AsyncPipeComponent } from './pages/async-pipe/async-pipe.component';
     ReattachComponent,
     NgZoneComponent,
     AsyncPipeComponent,
+    AttrComponent,
+    StructComponent,
+    LifeCycleComponent,
+    AttrDirective,
+    StructDirective,
+    LifeCycleDirective,
+    LifecycleDirective,
+    MouseOverDirective,
 
   ],
   imports: [
@@ -72,7 +88,7 @@ import { AsyncPipeComponent } from './pages/async-pipe/async-pipe.component';
     MatListModule,
     DragDropModule,
   ],
-  providers: [DataListProvider],
+  providers: [DataListProvider, PrecioBitCoinProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

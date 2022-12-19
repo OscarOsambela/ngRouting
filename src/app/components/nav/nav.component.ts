@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class NavComponent {
   token: string | null = null;
+  live: boolean = true
+
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

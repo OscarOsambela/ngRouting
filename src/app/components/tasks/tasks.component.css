@@ -59,6 +59,14 @@
   background-color: inherit;
   border: 1px solid #ccc;
 }
+.my_class3:hover{
+  background-color: #ffe4b3;
+  color: white
+}
+.my_class4:hover{
+  background-color: #cfffcf;
+  color: white
+}
 .urgent-task{
   color: orange
 }

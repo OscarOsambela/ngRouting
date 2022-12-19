@@ -27,11 +27,16 @@
       >
       <a mat-list-item [routerLink]="['/dashboard/random']">Contacto random</a>
       <a mat-list-item [routerLink]="['/dashboard/tasks']">Tareas</a>
+      <b>ChangeDetection</b>
       <a mat-list-item [routerLink]="['/dashboard/onpush']">OnPush</a>
       <a mat-list-item [routerLink]="['/dashboard/detach']">Detach</a>
-      <a mat-list-item [routerLink]="['/dashboard/reattach']">Reattach</a>
+      <a mat-list-item [routerLink]="['/dashboard/reattach']" >Reattach</a>
       <a mat-list-item [routerLink]="['/dashboard/ngzone']">ngZone</a>
       <a mat-list-item [routerLink]="['/dashboard/asyncpipe']">AsyncPipe</a>
+      <b>Directivas avanzadas</b>
+      <a mat-list-item [routerLink]="['/dashboard/attr']">Attr</a>
+      <a mat-list-item [routerLink]="['/dashboard/stract']">Stract</a>
+      <a mat-list-item [routerLink]="['/dashboard/lifecycle']" >LifeCycle</a>
 
       <a mat-list-item *ngIf="token" (click)="logout()">Logout</a>
     </mat-nav-list>

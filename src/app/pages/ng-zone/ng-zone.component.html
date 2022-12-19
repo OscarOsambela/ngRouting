@@ -1,1 +1,17 @@
-<p>ng-zone works!</p>
+<div><h1>
+    Ejemplo ngZone
+</h1>
+<p>Proceso de incremento se puede ejecutar dentro/fuera de ngZone</p>
+<p>Implicando que los cambios del progreso se vean o no hasta que se indique</p>
+<div>
+    <h3>Progreso actual: {{ progressNumber}}%</h3>
+    <h4 *ngIf="progressNumber >= 100">
+        Progreso terminado: {{texto}} de ngZone
+    </h4>
+</div>
+<div>
+    <button (click)="aumentarDentroNgZone()">Aumentar dentro de ngZone</button>
+    <button (click)="aumentarFueraNgZone()">Aumentar fuera de ngZone</button>
+
+</div>
+</div>

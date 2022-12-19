@@ -9,7 +9,8 @@ import { ITask, LEVELS } from 'src/app/models/tasks.interface';
   styleUrls: ['./tasks.component.css'],
 })
 export class TasksComponent {
-
+  color: string = '';
+  hoverColor: string = ''
   todo: ITask[] = [
     {
       title: 'Aprender Angular',
